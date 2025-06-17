@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Image Capture</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Webcam Image Capture</h1>
+    <p>Capture a webcam frame or upload an image.</p>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <div>
+        <video id="webcam" autoplay playsinline width="640" height="480"></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <br>
+        <button onclick="capture()">Capture Webcam Frame</button>
+    </div>
+    <form id="upload-form" method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="file" accept="image/*" id="file-input">
+        <input type="submit" value="Upload Image">
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
