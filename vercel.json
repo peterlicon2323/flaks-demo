@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "app.py":
+    {
+      "runtime": "python@3.12"
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ]
+}
